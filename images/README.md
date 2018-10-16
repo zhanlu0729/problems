@@ -1,4 +1,3 @@
 # Images
 ## 2018-10-16问题记录
-1.问题现象：![问题现象](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/
-u=702257389,1274025419&fm=27&gp=0.jpg "区块链")
+1.问题现象：![问题现象](https://github.com/zhanlu0729/problems/blob/master/images/20181016-jvm-args-error.png "区块链")
