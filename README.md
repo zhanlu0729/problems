@@ -18,3 +18,16 @@
 1. 问题现象：在Kibana上查出的日志是乱码![问题现象](https://github.com/zhanlu0729/problems/blob/master/images/20181203-app-log-messy-code.png)
 2. 排查思路：a.怀疑是logstash环境的语言、应用容器环境的语言、机器语言设置问题，经排查语言设置正常；b.怀疑是应用本身编码问题问题，经排查应用部分日志输出又是正常的；c.发现乱码日志都是部分dubbo接口产生的，经查dubbo官方资料，dubbo默认对有效载荷的限制8M,而出现乱码日志的这个dubbo接口传输的数据量又非常大
 3. 解决方案：调大有效载荷的限制为16M：``<dubbo:protocol name="dubbo" payload="16777216" />``问题得到解决
+
+### 2018-12-04 问题记录(应用反复重启)
+1. 问题现象：应用反复重启并报拉取镜像失败的错误
+2. 排查思路：a.查看harbor镜像是有的，到应用所在Node手工拉取镜像报错：``failed to register layer: xxx link too many links``；b.报这个错误的原因是tag=none的镜像太多，导致inodes资源耗尽
+3. 解决方案：比较好的解决办法还是在每个node上跑一个定时任务进行定时清理
+```
+df -i
+sudo find . -xdev -type f | cut -d "/" -f 2 | sort | uniq -c | sort -n
+curl -s https://raw.githubusercontent.com/ZZROTDesign/docker-clean/v2.0.4/docker-clean |
+sudo tee /usr/local/bin/docker-clean > /dev/null && \
+sudo chmod +x /usr/local/bin/docker-clean
+docker-clean
+```
