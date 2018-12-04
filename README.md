@@ -21,7 +21,7 @@
 
 ### 2018-12-04 问题记录(应用反复重启)
 1. 问题现象：应用反复重启并报拉取镜像失败的错误
-2. 排查思路：a.查看harbor镜像是有的，到应用所在Node手工拉取镜像报错：![](https://github.com/zhanlu0729/problems/blob/master/images/20181204-failed-register-layer-link-too-many.png)；b.报这个错误的原因是tag=none的镜像太多，导致inodes资源耗尽
+2. 排查思路：a.查看harbor镜像是有的，到应用所在Node手工拉取镜像报错：![](https://github.com/zhanlu0729/problems/blob/master/images/20181204-failed-register-layer-link-too-many.png) b.报这个错误的原因是tag=none的镜像太多，导致inodes资源耗尽
 3. 解决方案：比较好的解决办法还是在每个node上跑一个定时任务进行定时清理
 ```
 df -i
