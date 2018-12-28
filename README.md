@@ -37,3 +37,8 @@ docker-clean
 1. 问题现象：应用发布失败，拿不到Pod信息
 2. 排查思路：a.Pod存在但一直是Pending状态，通过describe查看Pod详细信息：![](https://github.com/zhanlu0729/problems/blob/master/images/20181205-failed-fit-any-node-Insufficient-cpu.png)
 3. 解决方案：增加集群资源问题得到解决
+
+### 2018-12-28 问题记录(Dubbo调用失败)
+1. 问题现象：Dubbo服务Consumer调用Provider端出现RemotingException异常
+2. 排查思路：a.查看日志：![](https://github.com/zhanlu0729/problems/blob/master/images/20181228-dubbo-data-too-large-8m.png)
+3. 解决方案：调大有效载荷的限制比实际大：``<dubbo:protocol name="dubbo" payload="16777216" />``问题得到解决
