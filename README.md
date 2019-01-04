@@ -42,3 +42,8 @@ docker-clean
 1. 问题现象：Dubbo服务Consumer调用Provider端出现RemotingException异常
 2. 排查思路：a.查看日志：![](https://github.com/zhanlu0729/problems/blob/master/images/20181228-dubbo-data-too-large-8m.png)
 3. 解决方案：调大有效载荷的限制比实际大：``<dubbo:protocol name="dubbo" payload="16777216" />``问题得到解决
+
+### 2019-01-04 问题记录(隆众机房部分应用日志丢失)
+1. 问题现象：隆众机房部分应用日志丢失(mysteel-oilchem-callcenter-timedtask)
+2. 排查思路：a.查看日志：![](https://github.com/zhanlu0729/problems/blob/master/images/20190104-es-400-LogLevel-too-lang.png)
+3. 解决方案：
