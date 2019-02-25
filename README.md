@@ -47,3 +47,6 @@ docker-clean
 1. 问题现象：隆众机房部分应用日志丢失(mysteel-oilchem-callcenter-timedtask)
 2. 排查思路：a.查看日志：![](https://github.com/zhanlu0729/problems/blob/master/images/20190104-es-400-LogLevel-too-lang.png)
 3. 解决方案：
+
+### 2019-02-25 问题记录(Dubbo服务报java.io.IOException: invalid constant type: 18)
+1. 问题现象：Dubbo服务在启动一直报
