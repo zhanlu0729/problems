@@ -49,4 +49,6 @@ docker-clean
 3. 解决方案：
 
 ### 2019-02-25 问题记录(Dubbo服务报java.io.IOException: invalid constant type: 18)
-1. 问题现象：Dubbo服务在启动一直报
+1. 问题现象：Dubbo服务在启动一直报依赖的Provider的一个bean注册失败，启动异常日志：![](https://github.com/zhanlu0729/problems/blob/master/images/20190225-invalid-constant-type-18.png)
+2. 排查思路：a.检查provider的接口是否注册成功：成功；b.查网上资料`javassist3.18.1以下版本在jdk8版本下不工作和asm5以下的版本在jdk8下也不工作`
+3. 解决方案：a.更改本地jdk版本为`jdk7`；b.升级项目的`javassist`版本为`>=3.18.1`并且`删除cglib, asm升级到5.0.4`
